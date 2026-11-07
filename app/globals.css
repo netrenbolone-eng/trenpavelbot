@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #10120f;
+    color-scheme: dark;
+    overflow-x: clip;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-ink font-sans text-paper antialiased;
+  }
+
+  ::selection {
+    background: #c5f65a;
+    color: #10120f;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid #10120f;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px #f3f5ec;
+  }
+}
+
+@layer utilities {
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(168, 175, 160, 0.82);
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(168, 175, 160, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(168, 175, 160, 0.045) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 35%, #000 15%, transparent 72%);
+    mask-image: radial-gradient(ellipse at 50% 35%, #000 15%, transparent 72%);
+  }
+}
