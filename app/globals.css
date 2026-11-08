@@ -4,6 +4,8 @@
 
 @layer base {
   html {
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
     background-color: #10120f;
     color-scheme: dark;
     overflow-x: clip;
