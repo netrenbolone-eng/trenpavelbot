@@ -41,9 +41,6 @@ export default function ActionLink({
       className={`${base} ${styles[variant]} ${className}`}
     >
       <span>{children}</span>
-      <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
-        →
-      </span>
     </motion.a>
   );
 }
