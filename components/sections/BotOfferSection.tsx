@@ -22,8 +22,8 @@ export default function BotOfferSection() {
               ТРЕНИРОВКИ И ПИТАНИЕ
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-              В боте TREN.PAVEL можно подобрать программу тренировок, разобраться с питанием и
-              отслеживать свои результаты.
+              Программа на месяц под цель и уровень. Частота 1–4 тренировки в неделю.
+              Четвёртая неделя — разгрузка.
             </p>
           </div>
 

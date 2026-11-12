@@ -50,7 +50,7 @@ export default function HeroSection() {
               variants={fadeUp}
               className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
             >
-              Научный подход к тренировкам и питанию — без марафонов и жёстких ограничений.
+              Программа на месяц под цель и уровень. Четвёртая неделя — разгрузка.
             </motion.p>
 
             <motion.div
