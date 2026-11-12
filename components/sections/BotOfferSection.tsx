@@ -15,7 +15,7 @@ export default function BotOfferSection() {
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 py-16 sm:px-8 lg:px-12">
         <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <p className="font-mono text-sm uppercase tracking-[0.12em] text-accent">
+            <p className="font-mono text-sm tracking-normal text-accent">
               Самостоятельный формат в Telegram
             </p>
             <h2 className="mt-5 text-[length:clamp(2rem,6.5vw,4.5rem)] font-semibold uppercase leading-[1.05] tracking-tight">
@@ -40,7 +40,7 @@ export default function BotOfferSection() {
               className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-br from-ink/85 via-ink/80 to-ink/70"
             />
             <div className="relative z-20">
-              <p className="font-mono text-sm uppercase tracking-[0.12em] text-muted">
+              <p className="font-mono text-sm tracking-normal text-muted">
                 Стоимость
               </p>
               <p className="mt-3 flex items-baseline gap-2">

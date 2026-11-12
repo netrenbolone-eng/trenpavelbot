@@ -62,16 +62,16 @@ export default function PricingSection() {
               />
 
               <div className="relative flex flex-col items-start gap-3 sm:flex-row sm:justify-between sm:gap-4">
-                <p className="break-words font-mono text-sm uppercase tracking-[0.1em] text-muted">
+                <p className="break-words font-mono text-sm tracking-normal text-muted">
                   {PLAN.name}
                 </p>
-                <span className="shrink-0 rounded-full border border-line px-3 py-1 font-mono text-sm uppercase tracking-[0.08em] text-muted">
+                <span className="shrink-0 rounded-full border border-line px-3 py-1 font-mono text-sm tracking-normal text-muted">
                   Отдельная услуга
                 </span>
               </div>
 
               <p className="relative mt-6 flex items-baseline gap-3">
-                <span className="font-mono text-sm uppercase tracking-[0.12em] text-accent">от</span>
+                <span className="font-mono text-sm tracking-normal text-accent">от</span>
                 <span className="text-[length:clamp(2.75rem,15vw,6rem)] font-semibold leading-none tracking-tighter">
                   {PLAN.price}
                 </span>

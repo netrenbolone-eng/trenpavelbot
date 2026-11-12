@@ -35,7 +35,7 @@ export default function HeroSection() {
       >
         <motion.header
           variants={fadeUp}
-          className="flex items-center font-mono text-sm uppercase tracking-[0.12em] text-muted"
+          className="flex items-center font-mono text-sm tracking-normal text-muted"
         >
           <span className="text-paper">TREN.PAVEL</span>
         </motion.header>
