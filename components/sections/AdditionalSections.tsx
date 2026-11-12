@@ -1,7 +1,6 @@
 import ActionLink from "@/components/ui/ActionLink";
 import Image from "next/image";
 import ParallaxBackground from "@/components/ui/ParallaxBackground";
-import SectionLabel from "@/components/ui/SectionLabel";
 import { LINKS } from "@/lib/site";
 
 const FAQ_ITEMS = [
@@ -88,7 +87,6 @@ export function AboutSection() {
           />
         </div>
         <div>
-          <SectionLabel index="04" title="Обо мне" total="07" />
           <h2 className="mt-8 text-[length:clamp(2rem,6.5vw,4.5rem)] font-semibold uppercase leading-[1.05] tracking-tight">
             Я — Павел. <span className="text-accent">TREN.PAVEL.</span>
           </h2>
@@ -119,7 +117,6 @@ export function ProductDetailsSection() {
         <div className="absolute inset-0 bg-gradient-to-br from-ink/85 via-ink/75 to-ink/80" />
       </div>
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12">
-        <SectionLabel index="03" title="Как устроен продукт" total="07" />
         <h2 className="mt-8 max-w-4xl text-[length:clamp(1.5rem,6.5vw,4rem)] font-semibold uppercase leading-[1.05] tracking-tight">
           ТРЕНИРОВКИ В УДОБНОМ ФОРМАТЕ
         </h2>
@@ -154,7 +151,6 @@ export function FAQSection() {
       className="flex min-h-[100svh] flex-col justify-center border-b border-line py-16 paged:snap-start paged:snap-always"
     >
       <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12">
-        <SectionLabel index="05" title="Тренировки в Telegram · FAQ" total="07" />
         <h2 className="mt-8 text-[length:clamp(1.5rem,6.5vw,4rem)] font-semibold uppercase leading-[1.05] tracking-tight">
           Частые вопросы
         </h2>
@@ -252,7 +248,6 @@ export function FinalBotCTASection() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(197,246,90,0.12),transparent_65%)]"
       />
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 text-center sm:px-8 lg:px-12">
-        <SectionLabel index="07" title="Начни в Telegram" total="07" />
         <h2 className="mx-auto mt-10 max-w-4xl text-[length:clamp(2rem,6.5vw,4.5rem)] font-semibold uppercase leading-[1.05] tracking-tight">
           Тренировки.
           <br />

@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import ActionLink from "@/components/ui/ActionLink";
 import ParallaxBackground from "@/components/ui/ParallaxBackground";
-import SectionLabel from "@/components/ui/SectionLabel";
 import { fadeUp, stagger } from "@/lib/motion";
 import { LINKS } from "@/lib/site";
 
@@ -43,9 +42,6 @@ export default function HeroSection() {
 
         <div className="grid flex-1 items-center gap-8 lg:grid-cols-[1.05fr_0.75fr]">
           <div className="flex flex-col justify-center py-10">
-            <div className="mb-8">
-              <SectionLabel index="01" title="Тренировки и питание" total="07" />
-            </div>
             <h1 className="max-w-5xl text-[length:clamp(2rem,6.5vw,4.5rem)] font-semibold uppercase leading-[1.05] tracking-tight">
               Фитнес, который <span className="text-accent">вписывается в твою жизнь.</span>
             </h1>

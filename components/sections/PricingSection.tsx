@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import ActionLink from "@/components/ui/ActionLink";
 import ParallaxBackground from "@/components/ui/ParallaxBackground";
-import SectionLabel from "@/components/ui/SectionLabel";
 import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
 import { LINKS, PLAN } from "@/lib/site";
 import ProcessSection from "@/components/sections/ProcessSection";
@@ -36,11 +35,7 @@ export default function PricingSection() {
           whileInView="show"
           viewport={viewportOnce}
         >
-          <motion.div variants={fadeUp}>
-            <SectionLabel index="06" title="Дополнительные услуги" total="07" />
-          </motion.div>
-
-          <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-12">
+            <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-12">
             <div className="lg:col-span-5">
               <motion.h2
                 variants={fadeUp}

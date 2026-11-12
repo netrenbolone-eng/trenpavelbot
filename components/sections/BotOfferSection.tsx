@@ -1,6 +1,5 @@
 import Image from "next/image";
 import ActionLink from "@/components/ui/ActionLink";
-import SectionLabel from "@/components/ui/SectionLabel";
 import { LINKS } from "@/lib/site";
 
 export default function BotOfferSection() {
@@ -14,8 +13,6 @@ export default function BotOfferSection() {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 py-16 sm:px-8 lg:px-12">
-        <SectionLabel index="02" title="Telegram Bot" total="07" />
-
         <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <p className="font-mono text-sm uppercase tracking-[0.12em] text-accent">
