@@ -10,6 +10,7 @@ interface ParallaxBackgroundProps {
   className: string;
   imageClassName: string;
   priority?: boolean;
+  alt?: string;
 }
 
 export default function ParallaxBackground({
@@ -18,6 +19,7 @@ export default function ParallaxBackground({
   className,
   imageClassName,
   priority = false,
+  alt = "",
 }: ParallaxBackgroundProps) {
   const imageRef = useRef<HTMLDivElement>(null);
   const progress = useMotionValue(0.5);
@@ -65,7 +67,7 @@ export default function ParallaxBackground({
       <motion.div className="absolute inset-x-0 -inset-y-[8%]" style={{ y }}>
         <Image
           src={src}
-          alt=""
+          alt={alt}
           fill
           priority={priority}
           sizes={sizes}

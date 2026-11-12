@@ -20,6 +20,7 @@ export default function HeroSection() {
           priority
           className="absolute inset-y-0 right-0 w-full lg:w-[68%]"
           imageClassName="object-cover object-[center_20%] opacity-40 grayscale"
+          alt="Тренер Pavel на фоне героя"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/45 lg:from-ink lg:via-ink/80 lg:to-ink/35" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />

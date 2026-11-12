@@ -1,0 +1,89 @@
+{
+  "version": 2,
+  "skills": {
+    "api-design": {
+      "source": "affaan-m/ECC",
+      "sourceType": "github",
+      "skillPath": "skills/api-design/SKILL.md",
+      "computedHash": "81d497a208fd9e18972b4a4a6fadc1a1af1de691382f02fd6d387bb505160a78"
+    },
+    "api-design-principles": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/backend-development/skills/api-design-principles/SKILL.md",
+      "computedHash": "cd8889e86d651fbc7ec5f1cdf1920cdc0fa6bd2ca6ca01b8d93e9d2f6b54c7a6"
+    },
+    "backend-development": {
+      "source": "mrgoonie/claudekit-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/backend-development/SKILL.md",
+      "computedHash": "746dbc248d2ac18a317ca49513b4be50f4f8b8e4f39d362cce93ec15886b296f"
+    },
+    "dev": {
+      "source": "microsoft/playwright-cli",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/dev/SKILL.md",
+      "computedHash": "c3841c205df161cd03481590ed0839849e5a7cb0886ccf603c4ecea25c775fed"
+    },
+    "frontend-design": {
+      "source": "cline/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "f71067bfa4e7950e1cecf38bb8acf3df5ebaec7baac5cc639111db3a4d43fc4e"
+    },
+    "n8n-workflow-patterns": {
+      "source": "czlonkowski/n8n-skills",
+      "sourceType": "github",
+      "skillPath": "skills/n8n-workflow-patterns/SKILL.md",
+      "computedHash": "1842339c007879358035d467a9bde7237b47eea502bedaf73edc2cfbed221de8"
+    },
+    "nextjs-best-practices": {
+      "source": "sickn33/agentic-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/nextjs-best-practices/SKILL.md",
+      "computedHash": "eff71908a3510f22f6e31d586e8183aaa9ff17a67e18ae7b66380711352290f1"
+    },
+    "playwright-cli": {
+      "source": "microsoft/playwright-cli",
+      "sourceType": "github",
+      "skillPath": "skills/playwright-cli/SKILL.md",
+      "computedHash": "d3c50339092b670cdda1ba2bed0bdee1c34247cdf70df475e8b7d83983a39e79"
+    },
+    "programmatic-seo": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/programmatic-seo/SKILL.md",
+      "computedHash": "f37db3caa28d6e8e7d4bc0b73e65db26cae7dfb15b53d97f58a0f2330bca545b"
+    },
+    "seo-audit": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/seo-audit/SKILL.md",
+      "computedHash": "37ac5512c83e37dea45ba4a1d8075623812df56db712b2461509d79b5599881e"
+    },
+    "seo-content": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-content/SKILL.md",
+      "computedHash": "4f572657d478b9b69ff3b0a0e8827bb0f5e3f16a5bee0e94002d8204fdf2b8be"
+    },
+    "spring-boot-openapi-documentation": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "skillPath": "plugins/developer-kit-java/skills/spring-boot-openapi-documentation/SKILL.md",
+      "computedHash": "8602fa826cb86ae9bd37ff4273a8aabea0457c92113f754540b57ac46d231ed9"
+    },
+    "telegram-bot": {
+      "source": "claude-office-skills/skills",
+      "sourceType": "github",
+      "skillPath": "telegram-bot/SKILL.md",
+      "computedHash": "7cb6a22cc8e44654ddab29ee33e577a5b8c82af51abb765f95ad6bf2902d9c3d"
+    },
+    "workflow-automation": {
+      "source": "HubSpot/agent-cli-skills",
+      "sourceType": "github",
+      "skillPath": "workflow-automation/SKILL.md",
+      "computedHash": "a9ebada3838bd363cc52bc67a89dd58f1692142b13c4ef2d6604a36eedd10436"
+    }
+  }
+}

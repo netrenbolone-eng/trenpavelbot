@@ -22,7 +22,7 @@ export default function OpenGraphImage() {
             "radial-gradient(ellipse at 82% 18%, rgba(197,246,90,0.16), transparent 38%)",
           padding: "72px",
           color: "#f3f5ec",
-          fontFamily: "Arial",
+          fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
         }}
       >
         <div style={{ display: "flex", fontSize: 28, letterSpacing: 12, color: "#c3cabd" }}>

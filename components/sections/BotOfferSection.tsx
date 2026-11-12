@@ -33,7 +33,7 @@ export default function BotOfferSection() {
           <div className="relative isolate overflow-hidden border border-line bg-ink p-6 sm:p-8 lg:col-span-5">
             <Image
               src="/images/bot-product.webp"
-              alt=""
+              alt="Bot TREN.PAVEL с тренировками и питанием"
               fill
               sizes="(min-width: 1024px) 38vw, 90vw"
               className="z-0 object-cover opacity-30"

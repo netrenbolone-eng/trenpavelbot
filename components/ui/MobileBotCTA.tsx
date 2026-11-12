@@ -8,7 +8,14 @@ export default function MobileBotCTA() {
 
   useEffect(() => {
     const hero = document.getElementById("hero");
+    
+    // Fallback timeout - show CTA after 2 seconds if IntersectionObserver doesn't work
+    const fallbackTimeout = setTimeout(() => {
+      setVisible(true);
+    }, 2000);
+
     if (!hero || !("IntersectionObserver" in window)) {
+      clearTimeout(fallbackTimeout);
       setVisible(true);
       return;
     }
@@ -19,7 +26,11 @@ export default function MobileBotCTA() {
     );
 
     observer.observe(hero);
-    return () => observer.disconnect();
+    
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallbackTimeout);
+    };
   }, []);
 
   if (!visible) return null;

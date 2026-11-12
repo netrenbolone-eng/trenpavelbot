@@ -21,6 +21,7 @@ export default function PricingSection() {
             sizes="(min-width: 1024px) 72vw, 100vw"
             className="absolute inset-0 scale-[1.03]"
             imageClassName="object-cover object-[center_24%] opacity-40 grayscale blur-[2px]"
+            alt="Фон секции дополнительных услуг и персонального ведения"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/45 lg:from-ink lg:via-ink/80 lg:to-ink/35" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />

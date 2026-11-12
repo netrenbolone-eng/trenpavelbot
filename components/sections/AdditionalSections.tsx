@@ -114,6 +114,7 @@ export function ProductDetailsSection() {
           sizes="100vw"
           className="absolute inset-0"
           imageClassName="object-cover object-[center_20%] opacity-45"
+          alt="Фон продукта с деталями тренировок"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-ink/85 via-ink/75 to-ink/80" />
       </div>
