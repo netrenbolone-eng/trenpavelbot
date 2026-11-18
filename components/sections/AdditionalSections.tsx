@@ -128,9 +128,13 @@ export function ProductDetailsSection() {
           ].map(([index, title]) => (
             <article
               key={index}
-              className="flex min-h-36 flex-col justify-between bg-ink p-5 sm:p-6"
+              className="group relative flex min-h-36 flex-col justify-between bg-ink p-5 sm:p-6 transition-colors duration-300 hover:bg-surface-raised"
             >
-              <span className="text-outline font-mono text-3xl">{index}</span>
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_0%,rgba(197,246,90,0.08),transparent)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              />
+              <span className="text-outline font-mono text-3xl transition-colors duration-300 group-hover:text-accent">{index}</span>
               <h3 className="mt-6 text-lg font-semibold uppercase leading-tight">{title}</h3>
             </article>
           ))}
@@ -156,12 +160,19 @@ export function FAQSection() {
         </h2>
         <div className="mt-10 border-t border-line">
           {FAQ_ITEMS.map(({ question, answer }) => (
-            <details key={question} className="group border-b border-line">
+            <details
+              key={question}
+              className="group relative border-b border-line transition-colors duration-300 hover:bg-surface-raised"
+            >
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_0%,rgba(197,246,90,0.08),transparent)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              />
               <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-6 py-4 text-base font-medium marker:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent [&::-webkit-details-marker]:hidden sm:text-lg">
                 {question}
                 <span
                   aria-hidden
-                  className="shrink-0 text-xl text-accent transition-transform group-open:rotate-45"
+                  className="shrink-0 text-xl text-accent transition-colors duration-300 group-hover:text-accent transition-transform group-open:rotate-45"
                 >
                   +
                 </span>

@@ -27,7 +27,9 @@ export default function BotOfferSection() {
             </p>
           </div>
 
-          <div className="relative isolate overflow-hidden border border-line bg-ink p-6 sm:p-8 lg:col-span-5">
+          <div
+            className="group relative isolate overflow-hidden border border-line bg-ink p-6 sm:p-8 lg:col-span-5 transition-colors duration-300 hover:bg-surface-raised"
+          >
             <Image
               src="/images/bot-product.webp"
               alt="Bot TREN.PAVEL с тренировками и питанием"
@@ -44,7 +46,7 @@ export default function BotOfferSection() {
                 Стоимость
               </p>
               <p className="mt-3 flex items-baseline gap-2">
-                <span className="text-6xl font-semibold leading-none text-accent sm:text-7xl">
+                <span className="text-6xl font-semibold leading-none text-accent sm:text-7xl transition-colors duration-300 group-hover:text-accent">
                   660
                 </span>
                 <span className="text-3xl font-medium text-accent">₽</span>
