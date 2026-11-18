@@ -101,7 +101,7 @@ export default function PricingSection() {
                 variant="ghost"
                 className="relative mt-6 w-full sm:w-auto"
               >
-                Обсудить с тренером
+                Оставить заявку
               </ActionLink>
             </motion.article>
           </div>
