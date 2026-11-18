@@ -56,7 +56,7 @@ export default function BotOfferSection() {
                 стоимость не входят.
               </p>
               <ActionLink href={LINKS.bot} external className="mt-6 w-full">
-                Открыть бота
+                Начать движение
               </ActionLink>
             </div>
           </div>
