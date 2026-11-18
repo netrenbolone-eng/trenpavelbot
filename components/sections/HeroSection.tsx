@@ -67,7 +67,7 @@ export default function HeroSection() {
                 <span className="text-2xl font-semibold text-accent">660 ₽</span>
               </p>
               <ActionLink href={LINKS.bot} external className="w-full sm:w-auto">
-                Открыть бота
+                Начать движение
               </ActionLink>
               <ActionLink href="#additional-services" variant="ghost" className="w-full sm:w-auto">
                 Персональное ведение
