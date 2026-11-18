@@ -228,7 +228,7 @@ export function TariffsSection() {
                 variant="ghost"
                 className="mt-6 w-full"
               >
-                Уточнить у тренера
+                Задать вопрос
               </ActionLink>
             </article>
           ))}
