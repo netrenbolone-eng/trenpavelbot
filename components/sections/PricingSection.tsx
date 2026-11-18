@@ -54,8 +54,12 @@ export default function PricingSection() {
 
             <motion.article
               variants={fadeUp}
-              className="relative overflow-hidden border border-line bg-ink p-4 sm:p-8 lg:col-span-7"
+              className="group relative overflow-hidden border border-line bg-ink p-4 sm:p-8 lg:col-span-7 transition-colors duration-300 hover:bg-surface-raised"
             >
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_0%,rgba(197,246,90,0.08),transparent)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              />
               <div
                 aria-hidden
                 className="pointer-events-none absolute -right-16 -top-24 h-56 w-56 rounded-full bg-[radial-gradient(closest-side,rgba(197,246,90,0.1),transparent)]"
@@ -72,7 +76,7 @@ export default function PricingSection() {
 
               <p className="relative mt-6 flex items-baseline gap-3">
                 <span className="font-mono text-sm tracking-normal text-accent">от</span>
-                <span className="text-[length:clamp(2.75rem,15vw,6rem)] font-semibold leading-none tracking-tighter">
+                <span className="text-[length:clamp(2.75rem,15vw,6rem)] font-semibold leading-none tracking-tighter transition-colors duration-300 group-hover:text-accent">
                   {PLAN.price}
                 </span>
                 <span className="text-3xl text-muted">{PLAN.currency}</span>
