@@ -10,6 +10,7 @@ import {
 } from "@/components/sections/AdditionalSections";
 import Footer from "@/components/Footer";
 import MobileBotCTA from "@/components/ui/MobileBotCTA";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 
 export default function Page() {
   return (
@@ -22,6 +23,7 @@ export default function Page() {
         <FAQSection />
         <PricingSection />
         <TariffsSection />
+        <TestimonialsSection />
         <FinalBotCTASection />
       </main>
       <Footer />

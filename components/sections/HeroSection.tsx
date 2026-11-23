@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import ActionLink from "@/components/ui/ActionLink";
 import ParallaxBackground from "@/components/ui/ParallaxBackground";
 import { fadeUp, stagger } from "@/lib/motion";
-import { LINKS } from "@/lib/site";
+import { botLink } from "@/lib/site";
 
 export default function HeroSection() {
   return (
@@ -15,7 +15,7 @@ export default function HeroSection() {
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <ParallaxBackground
           src="/images/trainer-hero.webp"
-          sizes="(min-width: 1024px) 68vw, 100vw"
+          sizes="100vw"
           priority
           className="absolute inset-y-0 right-0 w-full lg:w-[68%]"
           imageClassName="object-cover object-[center_20%] opacity-40 grayscale"
@@ -43,14 +43,22 @@ export default function HeroSection() {
         <div className="grid flex-1 items-center gap-8 lg:grid-cols-[1.05fr_0.75fr]">
           <div className="flex flex-col justify-center py-10">
             <h1 className="max-w-5xl text-[length:clamp(2rem,6.5vw,4.5rem)] font-semibold uppercase leading-[1.05] tracking-tight">
-              Фитнес, который <span className="text-accent">вписывается в твою жизнь.</span>
+              Программа тренировок и питания в Telegram
             </h1>
 
             <motion.p
               variants={fadeUp}
               className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
             >
-              Программа на каждый месяц под цель, уровень, занятость.
+              Фитнес, который вписывается в твою жизнь.
+            </motion.p>
+
+            <motion.p
+              variants={fadeUp}
+              className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
+            >
+              Программа на месяц под цель и уровень. Четвёртая неделя — разгрузка.
+            </motion.p>
             </motion.p>
 
             <motion.div
@@ -59,18 +67,16 @@ export default function HeroSection() {
             >
               <p
                 className="flex flex-wrap items-baseline gap-x-2 gap-y-1"
-                aria-label="Твоя фитнес-программа всего за 660 рублей"
+                aria-label="Твоя фитнес-программа всего за 660 рублей в месяц"
               >
                 <span className="font-mono text-sm uppercase tracking-[0.12em] text-muted">
-                  Твой готовый план тренировок всего за 
+                  Твоя фитнес-программа всего за
                 </span>
                 <span className="text-2xl font-semibold text-accent">660 ₽</span>
+                <span className="font-mono text-sm uppercase tracking-[0.12em] text-muted">в месяц</span>
               </p>
-              <ActionLink href={LINKS.bot} external className="w-full sm:w-auto">
+              <ActionLink href={botLink("site_hero")} external className="w-full sm:w-auto">
                 Начать движение
-              </ActionLink>
-              <ActionLink href="#additional-services" variant="ghost" className="w-full sm:w-auto">
-                Персональное ведение
               </ActionLink>
             </motion.div>
           </div>

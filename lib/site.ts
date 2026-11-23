@@ -6,7 +6,17 @@ export const LINKS = {
   telegram: "https://t.me/trenviet",
   instagram: "https://www.instagram.com/tren.pavel/",
   tiktok: "https://www.tiktok.com/@tren.pavel",
+  blog: "/blog",
+  oferta: "/oferta",
+  privacy: "/privacy",
 } as const;
+
+// Ссылка на бота с меткой источника перехода (до 64 символа: латиница, цифры, _, -).
+// Бот должен читать параметр /start и сохранять его в базу.
+export function botLink(start: string) {
+  const tag = String(start).replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 64);
+  return `${LINKS.bot}?start=${tag}`;
+}
 
 export interface Step {
   readonly id: string;

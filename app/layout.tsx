@@ -1,28 +1,24 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import MotionProvider from "@/components/MotionProvider";
+import { SITE_URL } from "@/lib/site-url";
 import "./globals.css";
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  process.env.CF_PAGES_URL ??
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: "ТРЕНИРОВКИ И ПИТАНИЕ",
+  title: "Программа тренировок в Telegram за 660 ₽ — TREN.PAVEL",
   description:
-    "Тренировки в Telegram от TREN.PAVEL за 660 ₽. Программа на месяц под цель и уровень. Четвёртая неделя — разгрузка.",
+    "Тренировки в Telegram от TREN.PAVEL за 660 ₽ в месяц. Программа тренировок и питания под цель и уровень. Четвёртая неделя — разгрузка.",
   applicationName: "TREN.PAVEL",
-  alternates: { canonical: siteUrl },
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "ТРЕНИРОВКИ И ПИТАНИЕ",
+    title: "Программа тренировок в Telegram за 660 ₽ — TREN.PAVEL",
     description:
-      "Тренировки в Telegram от TREN.PAVEL за 660 ₽. Программа на месяц под цель и уровень. Четвёртая неделя — разгрузка.",
+      "Тренировки в Telegram от TREN.PAVEL за 660 ₽ в месяц. Программа тренировок и питания под цель и уровень. Четвёртая неделя — разгрузка.",
     siteName: "TREN.PAVEL",
     locale: "ru_RU",
     type: "website",
-    url: siteUrl,
+    url: SITE_URL,
+    images: [{ url: "https://bodysupport.ru/og-image", width: 1200, height: 630 }],
   },
 };
 
@@ -40,6 +36,21 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
     <html lang="ru">
       <body>
         <MotionProvider>{children}</MotionProvider>
+        {/* Яндекс.Метрика — вставьте свой ID счётчика вместо XXXXXXXX и раскомментируйте блок */}
+        {/* eslint-disable-next-line */}
+        {/* @ts-ignore */}
+        {/* 
+        <script defer>
+          {`
+            (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+            ym(XXXXXXX, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+          `}
+        </script>
+        */}
+        {/* Google Search Console — вставьте свой код верификации */}
+        {/* <meta name="google-site-verification" content="XXXXXXXX" /> */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -47,8 +58,8 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "TREN.PAVEL",
-              url: siteUrl,
-              logo: `${siteUrl}/icon.svg`,
+              url: SITE_URL,
+              logo: `${SITE_URL}/icon.svg`,
               sameAs: [
                 "https://t.me/trenviet",
                 "https://www.instagram.com/tren.pavel/",
@@ -69,10 +80,10 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "TREN.PAVEL",
-              url: siteUrl,
+              url: SITE_URL,
               potentialAction: {
                 "@type": "SearchAction",
-                target: `${siteUrl}/search?q={search_term_string}`,
+                target: `${SITE_URL}/search?q={search_term_string}`,
                 "query-input": "required name=search_term_string",
               },
             }),
@@ -98,7 +109,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
                   name: "Что входит в стоимость?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "На сайте указана стоимость 660 ₽ и описаны возможности бота: подбор тренировок, информация о питании и ведение результатов. Срок и условия оплаты уточни в боте до оплаты.",
+                    text: "На сайте указана стоимость 660 ₽ в месяц и описаны возможности бота: подбор тренировок, информация о питании и ведение результатов. Срок и условия оплаты уточни в боте до оплаты.",
                   },
                 },
                 {
@@ -119,6 +130,31 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
                 },
               ],
             }),
+          }}
+        />
+        {/* sendBotGoal — цель Яндекс.Метрики на клик по кнопке бота.
+             Вставьте реальный ID счётчика и раскомментируйте инициализацию выше.
+             Функция вызывается кликом по ссылке бота (data-goal="bot_click"). */}
+        <script
+          id="bot-goal-tracker"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(){
+                var goalName = 'bot_click';
+                var counterId = XXXXXXXX; // <-- вставьте ID счётчика Яндекс.Метрики
+                function sendBotGoal(event){
+                  var link = event.currentTarget;
+                  if (!link || !link.dataset || link.dataset.goalSent === '1') return;
+                  link.dataset.goalSent = '1';
+                  if (window.ym && window.ym && typeof window.ym === 'function' && counterId) {
+                    try { window.ym(counterId, 'reachGoal', goalName); } catch (e) {}
+                  }
+                }
+                document.querySelectorAll('a[data-ym-goal]').forEach(function(link){
+                  link.addEventListener('click', sendBotGoal);
+                });
+              })();
+            `,
           }}
         />
       </body>

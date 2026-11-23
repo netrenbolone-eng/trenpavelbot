@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { LINKS } from "@/lib/site";
+import { botLink } from "@/lib/site";
 
 export default function MobileBotCTA() {
   const [visible, setVisible] = useState(false);
@@ -38,7 +38,7 @@ export default function MobileBotCTA() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 bg-gradient-to-t from-ink via-ink/95 to-transparent px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-8 md:hidden">
       <a
-        href={LINKS.bot}
+        href={botLink("site_footer")}
         target="_blank"
         rel="noopener noreferrer"
         className="flex min-h-14 items-center justify-center rounded-full bg-accent px-6 text-center font-mono text-sm font-medium uppercase tracking-[0.12em] text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import ActionLink from "@/components/ui/ActionLink";
-import { LINKS } from "@/lib/site";
+import { botLink } from "@/lib/site";
 
 export default function BotOfferSection() {
   return (
@@ -23,7 +23,6 @@ export default function BotOfferSection() {
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
               Программа на месяц под цель и уровень. Частота 1–4 тренировки в неделю.
-              Четвёртая неделя — разгрузка.
             </p>
           </div>
 
@@ -50,12 +49,13 @@ export default function BotOfferSection() {
                   660
                 </span>
                 <span className="text-3xl font-medium text-accent">₽</span>
+                <span className="font-mono text-sm uppercase tracking-[0.12em] text-muted">в месяц</span>
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted">
                 Это отдельный продукт в Telegram. Персональное ведение и разбор техники в эту
                 стоимость не входят.
               </p>
-              <ActionLink href={LINKS.bot} external className="mt-6 w-full">
+              <ActionLink href={botLink("site_price")} external className="mt-6 w-full">
                 Начать движение
               </ActionLink>
             </div>
