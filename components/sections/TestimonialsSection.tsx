@@ -64,7 +64,12 @@ export function TestimonialsSection() {
                 <p className="text-base leading-relaxed">
                   {text}
                 </p>
-                <span className="mt-2 block text-[10px] uppercase tracking-wider text-muted opacity-70 font-mono">
+                <span className={`mt-2 block text-[10px] uppercase tracking-wider font-mono font-semibold ${
+                  side === "right"
+                    ? "text-ink"
+                    : "text-paper"
+                } opacity-90`}
+                >
                   {name}
                 </span>
               </div>
