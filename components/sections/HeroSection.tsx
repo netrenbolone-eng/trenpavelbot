@@ -59,7 +59,6 @@ export default function HeroSection() {
             >
               Программа на месяц под цель и уровень. Четвёртая неделя — разгрузка.
             </motion.p>
-            </motion.p>
 
             <motion.div
               variants={fadeUp}
