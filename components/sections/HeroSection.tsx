@@ -57,7 +57,7 @@ export default function HeroSection() {
               variants={fadeUp}
               className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
             >
-              Программа на месяц под цель и уровень. Четвёртая неделя — разгрузка.
+              Программа на месяц под цель и уровень.
             </motion.p>
 
             <motion.div
@@ -66,10 +66,10 @@ export default function HeroSection() {
             >
               <p
                 className="flex flex-wrap items-baseline gap-x-2 gap-y-1"
-                aria-label="Твоя фитнес-программа всего за 660 рублей в месяц"
+                aria-label="Твоя тренировочный план всего за 660 в месяц"
               >
                 <span className="font-mono text-sm uppercase tracking-[0.12em] text-muted">
-                  Твоя фитнес-программа всего за
+                  Твоя тренировочный план всего за
                 </span>
                 <span className="text-2xl font-semibold text-accent">660 ₽</span>
                 <span className="font-mono text-sm uppercase tracking-[0.12em] text-muted">в месяц</span>
