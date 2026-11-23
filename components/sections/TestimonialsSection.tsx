@@ -39,9 +39,9 @@ export function TestimonialsSection() {
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 text-center sm:px-8 lg:px-12">
         <h2 className="mx-auto mt-10 max-w-4xl text-[length:clamp(2rem,6.5vw,4.5rem)] font-semibold uppercase leading-[1.05] tracking-tight">
-          Результаты,
+          НЕ ОБЕЩАНИЯ.
           <br />
-          <span className="text-accent">которых ждут.</span>
+          <span className="text-accent">РЕАЛЬНЫЙ ОПЫТ</span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
           Отклики клиентов из бота TREN.PAVEL
