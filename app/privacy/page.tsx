@@ -170,7 +170,7 @@ export default function PrivacyPage() {
             </section>
 
             <p className="mt-10 text-xs text-muted">
-              Текст политики рекомендуется сверить с юристом перед публикацией.
+              
             </p>
             <p className="mt-6">
               <Link href="/" className="text-accent hover:underline">
