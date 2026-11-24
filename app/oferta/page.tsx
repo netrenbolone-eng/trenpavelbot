@@ -52,9 +52,8 @@ export default function OfertaPage() {
             <section>
               <h3 className="font-semibold uppercase tracking-tight text-paper">2. Сведения о Продавце</h3>
               <p className="mt-4">
-                
-              <p className="mt-4">
                 Статус: самозанятый в соответствии с ФЗ-422.
+              <p className="mt-4">
               </p>
               <p className="mt-4">
                 Контакты для претензий и вопросов: через бота TREN.PAVEL или почту,
