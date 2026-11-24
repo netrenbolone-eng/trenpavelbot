@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
 
 const TESTIMONIALS = [
   {
@@ -90,15 +89,25 @@ interface TestimonialCardProps {
 }
 
 function TestimonialCard({ id, name, age, text, isOpen, onClick }: TestimonialCardProps) {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [contentHeight, setContentHeight] = useState(0);
+
+  useEffect(() => {
+    if (isOpen && contentRef.current) {
+      setContentHeight(contentRef.current.scrollHeight);
+    } else {
+      setContentHeight(0);
+    }
+  }, [isOpen]);
+
   return (
-    <motion.div
-      layout
+    <div
       className="relative w-full max-w-2xl mx-auto"
       onClick={onClick}
       style={{ cursor: "pointer" }}
     >
       <div
-        className={`relative rounded-2xl p-5 sm:p-6 bg-surface-raised border border-line transition-all duration-300 ${
+        className={`relative rounded-2xl p-5 sm:p-6 bg-surface-raised border border-line transition-all duration-200 ease-out ${
           isOpen ? "shadow-xl ring-2 ring-accent/30" : "shadow-lg hover:shadow-xl hover:border-accent/30"
         }`}
       >
@@ -111,35 +120,31 @@ function TestimonialCard({ id, name, age, text, isOpen, onClick }: TestimonialCa
               {age} лет
             </p>
           </div>
-          <motion.span
-            className="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-accent/10 text-accent transition-transform duration-300"
-            animate={{ rotate: isOpen ? 180 : 0 }}
+          <span
+            className="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-accent/10 text-accent transition-transform duration-200 ease-out"
+            style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M6 9l6 6 6-6" />
             </svg>
-          </motion.span>
+          </span>
         </div>
 
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0, marginTop: -10 }}
-              animate={{ opacity: 1, height: "auto", marginTop: 16 }}
-              exit={{ opacity: 0, height: 0, marginTop: -10 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="overflow-hidden"
-            >
-              <div className="pt-4 border-t border-line/50">
-                <p className="text-base leading-relaxed text-muted whitespace-pre-line">
-                  {text}
-                </p>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div
+          className="overflow-hidden transition-all duration-200 ease-out"
+          style={{
+            maxHeight: isOpen ? contentHeight : 0,
+            marginTop: isOpen ? 16 : 0,
+            opacity: isOpen ? 1 : 0,
+          }}
+        >
+          <div ref={contentRef} className="pt-4 border-t border-line/50">
+            <p className="text-base leading-relaxed text-muted whitespace-pre-line">
+              {text}
+            </p>
+          </div>
+        </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
-
