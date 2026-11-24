@@ -29,7 +29,7 @@ export default function Footer() {
             © 2026 TREN.PAVEL
           </p>
         </div>
-        <nav aria-label="Социальные сети" className="flex items-center gap-2">
+        <nav aria-label="Социальные сети" className="flex items-center gap-2 mx-auto sm:mx-0">
           {SOCIALS.map(({ label, href, Icon }) => (
             <a
               key={label}
