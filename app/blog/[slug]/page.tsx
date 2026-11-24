@@ -1,23 +1,40 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getArticle } from "@/lib/blog";
+import { Metadata } from "next";
+import { getArticle, ARTICLES } from "@/lib/blog";
 import { botLink } from "@/lib/site";
+import { SITE_URL } from "@/lib/site-url";
 
 export function generateStaticParams() {
-  return getArticles().map((article) => ({ slug: article.slug }));
+  return ARTICLES.map((article) => ({ slug: article.slug }));
 }
 
-function getArticles() {
-  return [
-    { slug: "programma-trenirovok-na-mesyac" },
-    { slug: "pitanie-pri-nabore-massy" },
-    { slug: "chetvertaya-nedelya-razgruzka" },
-    { slug: "treniovki-doma-bez-zala" },
-    { slug: "kak-nachat-trenirovatsya-s-nulya" },
-    { slug: "treniovki-i-pitanie-v-telegrame" },
-    { slug: "progress-i-korrektirovka" },
-    { slug: "fitnes-vpisyvayushhiy-v-zhizn" },
-  ];
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const article = getArticle((await params).slug as string);
+  if (!article) return { title: "Статья не найдена" };
+
+  const url = `${SITE_URL}/blog/${article.slug}`;
+
+  return {
+    title: `${article.title} — TREN.PAVEL`,
+    description: article.excerpt,
+    alternates: { canonical: `/blog/${article.slug}` },
+    openGraph: {
+      title: article.title,
+      description: article.excerpt,
+      url,
+      type: "article",
+      publishedTime: article.date,
+      authors: ["TREN.PAVEL"],
+      images: [{ url: `${SITE_URL}/og-image`, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.excerpt,
+      images: [`${SITE_URL}/og-image`],
+    },
+  };
 }
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {

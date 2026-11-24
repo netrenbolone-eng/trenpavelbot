@@ -66,13 +66,12 @@ export default function HeroSection() {
             >
               <p
                 className="flex flex-wrap items-baseline gap-x-2 gap-y-1"
-                aria-label="Твоя тренировочный план всего за 660 в месяц"
+                aria-label="Программа на месяц под цель и уровень 660 ₽"
               >
                 <span className="font-mono text-sm uppercase tracking-[0.12em] text-muted">
-                  Твоя тренировочный план всего за
+                  Программа на месяц под цель и уровень
                 </span>
                 <span className="text-2xl font-semibold text-accent">660 ₽</span>
-                <span className="font-mono text-sm uppercase tracking-[0.12em] text-muted">в месяц</span>
               </p>
               <ActionLink href={botLink("site_hero")} external className="w-full sm:w-auto">
                 Начать движение

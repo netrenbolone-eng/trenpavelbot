@@ -28,9 +28,6 @@ export default function Footer() {
           <p className="font-mono text-sm uppercase tracking-[0.12em] text-muted">
             © 2026 TREN.PAVEL
           </p>
-          <p className="text-xs text-muted">
-            Продавец: самозанятый. Оплата и условия — в боте перед стартом подписки.
-          </p>
         </div>
         <nav aria-label="Социальные сети" className="flex items-center gap-2">
           {SOCIALS.map(({ label, href, Icon }) => (

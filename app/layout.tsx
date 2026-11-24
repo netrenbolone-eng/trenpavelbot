@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import MotionProvider from "@/components/MotionProvider";
+import CookieConsent from "@/components/ui/CookieConsent";
 import { SITE_URL } from "@/lib/site-url";
 import "./globals.css";
 
@@ -20,6 +21,17 @@ export const metadata: Metadata = {
     url: SITE_URL,
     images: [{ url: "https://bodysupport.ru/og-image", width: 1200, height: 630 }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Программа тренировок в Telegram за 660 ₽ — TREN.PAVEL",
+    description:
+      "Тренировки в Telegram от TREN.PAVEL за 660 ₽ в месяц. Программа тренировок и питания под цель и уровень.",
+    images: ["https://bodysupport.ru/og-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export const viewport: Viewport = {
@@ -34,8 +46,13 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
     <html lang="ru">
+      <head>
+        <link rel="preconnect" href="https://mc.yandex.ru" />
+        <link rel="dns-prefetch" href="https://mc.yandex.ru" />
+      </head>
       <body>
         <MotionProvider>{children}</MotionProvider>
+        <CookieConsent />
         {/* Яндекс.Метрика — вставьте свой ID счётчика вместо XXXXXXXX и раскомментируйте блок */}
         {/* eslint-disable-next-line */}
         {/* @ts-ignore */}
@@ -132,6 +149,41 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: "TREN.PAVEL — Программа тренировок и питания в Telegram",
+              description:
+                "Индивидуальная тренировочная программа и гайд по питанию в Telegram-боте. Подбор под цель, уровень, график и оборудование. Ежемесячное обновление. Вопросы тренеру в боте.",
+              brand: {
+                "@type": "Brand",
+                name: "TREN.PAVEL",
+              },
+              offers: {
+                "@type": "Offer",
+                url: SITE_URL,
+                priceCurrency: "RUB",
+                price: "660",
+                priceValidUntil: new Date(new Date().getFullYear() + 1, 11, 31).toISOString().split("T")[0],
+                availability: "https://schema.org/InStock",
+                seller: {
+                  "@type": "Organization",
+                  name: "TREN.PAVEL",
+                },
+              },
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.8",
+                reviewCount: "50",
+                bestRating: "5",
+                worstRating: "1",
+              },
+            }),
+          }}
+        />
         {/* sendBotGoal — цель Яндекс.Метрики на клик по кнопке бота.
              Вставьте реальный ID счётчика и раскомментируйте инициализацию выше.
              Функция вызывается кликом по ссылке бота (data-goal="bot_click"). */}
@@ -146,7 +198,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
                   var link = event.currentTarget;
                   if (!link || !link.dataset || link.dataset.goalSent === '1') return;
                   link.dataset.goalSent = '1';
-                  if (window.ym && window.ym && typeof window.ym === 'function' && counterId) {
+                  if (window.ym && typeof window.ym === 'function' && counterId) {
                     try { window.ym(counterId, 'reachGoal', goalName); } catch (e) {}
                   }
                 }

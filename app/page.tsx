@@ -10,7 +10,7 @@ import {
 } from "@/components/sections/AdditionalSections";
 import Footer from "@/components/Footer";
 import MobileBotCTA from "@/components/ui/MobileBotCTA";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 
 export default function Page() {
   return (

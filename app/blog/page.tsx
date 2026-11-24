@@ -1,10 +1,27 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import { ARTICLES } from "@/lib/blog";
+import { SITE_URL } from "@/lib/site-url";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Блог TREN.PAVEL — тренировки, питание, фитнес",
   description:
     "Статьи про программу тренировок на месяц, питание при наборе массы, разгрузку и фитнес, который вписывается в жизнь.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Блог TREN.PAVEL — тренировки, питание, фитнес",
+    description:
+      "Статьи про программу тренировок на месяц, питание при наборе массы, разгрузку и фитнес, который вписывается в жизнь.",
+    url: `${SITE_URL}/blog`,
+    type: "website",
+    images: [{ url: `${SITE_URL}/og-image`, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Блог TREN.PAVEL — тренировки, питание, фитнес",
+    description: "Статьи про тренировки, питание и фитнес.",
+    images: [`${SITE_URL}/og-image`],
+  },
 };
 
 export default function BlogPage() {

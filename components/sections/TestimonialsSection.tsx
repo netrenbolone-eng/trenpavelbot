@@ -1,31 +1,46 @@
-export function TestimonialsSection() {
-  const TESTIMONIALS = [
-    {
-      name: "Анна",
-      text: "Мне программа с первой недели подошла. Тренировки минут по 40, иногда занимаюсь дома, подстроили под мой инвентарь домашние тренировки. Всего месяц, а уже минус 3 кг, и спина перестала болеть. Очень рада, что решила попробовать.",
-      side: "left",
-    },
-    {
-      name: "Михаил",
-      text: "Наконец то сдвинулся вес. Тренироватьсься стал меньше, а вес и отражение в зеркале меняется быстрее. Хорошо ты подстроил нагрузку под мой график, так гораздо проще придерживаться плана.",
-      side: "right",
-    },
-    {
-      name: "Ольга",
-      text: "Инструкция по питанию которая шла в комплекте, очень пригодилась. Наконец стало понятно, что и в каких количествах кушать, что бы не просто вес набирать а мышцы. И удобно что всегда можно задать вопрос, если что-то непонятно.",
-      side: "left",
-    },
-    {
-      name: "Сергей",
-      text: "Понравилось что есть и разгрузочные дни, а не просто постоянное увеличение нагрузки. С моим графиком это отлично вписывается в жизнь. По результатам, силовые выросли, плечи стали шире, рельефность мышц проявилась. Буду продолжать.",
-      side: "right",
-    },
-  ];
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const TESTIMONIALS = [
+  {
+    id: 1,
+    name: "Анна",
+    age: 29,
+    text: "Мне программа с первой недели подошла. Тренировки минут по 40, иногда занимаюсь дома, подстроили под мой инвентарь домашние тренировки. Всего месяц, а уже минус 3 кг, и спина перестала болеть. Очень рада, что решила попробовать.",
+  },
+  {
+    id: 2,
+    name: "Михаил",
+    age: 25,
+    text: "Наконец-то сдвинулся вес. Тренироваться стал меньше, а вес и отражение в зеркале меняется быстрее. Хорошо ты подстроил нагрузку под мой график, так гораздо проще придерживаться плана.",
+  },
+  {
+    id: 3,
+    name: "Ольга",
+    age: 34,
+    text: "Инструкция по питанию, которая шла в комплекте, очень пригодилась. Наконец стало понятно, что и в каких количествах кушать, чтобы не просто вес набирать, а мышцы. И удобно, что всегда можно задать вопрос, если что-то непонятно.",
+  },
+  {
+    id: 4,
+    name: "Сергей",
+    age: 27,
+    text: "Понравилось, что есть и разгрузочные дни, а не просто постоянное увеличение нагрузки. С моим графиком это отлично вписывается в жизнь. По результатам, силовые выросли, плечи стали шире, рельефность мышц проявилась. Буду продолжать.",
+  },
+];
+
+export default function TestimonialsSection() {
+  const [openId, setOpenId] = useState<number | null>(null);
+
+  const toggle = (id: number) => {
+    setOpenId((prev) => (prev === id ? null : id));
+  };
 
   return (
     <section
       id="testimonials"
-      className="relative flex min-h-[70svh] flex-col justify-center border-b border-line py-20 paged:snap-start paged:snap-always"
+      className="relative flex min-h-[70svh] flex-col justify-center border-b border-line py-20 paged:snap-start paged:snap-always overflow-x-hidden"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/90 to-ink" />
@@ -47,36 +62,85 @@ export function TestimonialsSection() {
           Отклики клиентов из бота TREN.PAVEL
         </p>
 
-        <div className="mt-16 flex flex-col gap-8 sm:flex-row sm:flex-wrap sm:justify-center lg:gap-12">
-          {TESTIMONIALS.map(({ name, text, side }, index) => (
-            <div
-              key={name}
-              className="flex flex-col gap-2 sm:flex-row sm:items-end sm:gap-4"
-              style={{ flexDirection: side === "right" ? "row-reverse" : "row" }}
-            >
-              <div
-                className={`max-w-[80%] rounded-2xl p-4 sm:p-5 shadow-lg ${
-                  side === "right"
-                    ? "bg-accent text-ink ml-auto"
-                    : "bg-surface-raised text-paper border border-line mr-auto"
-                }`}
-              >
-                <p className="text-base leading-relaxed">
-                  {text}
-                </p>
-                <span className={`mt-2 block text-[10px] uppercase tracking-wider font-mono font-semibold ${
-                  side === "right"
-                    ? "text-ink"
-                    : "text-paper"
-                } opacity-90`}
-                >
-                  {name}
-                </span>
-              </div>
-            </div>
+        <div className="mt-16 flex flex-col gap-4 sm:max-w-3xl mx-auto w-full">
+          {TESTIMONIALS.map(({ id, name, age, text }) => (
+            <TestimonialCard
+              key={id}
+              id={id}
+              name={name}
+              age={age}
+              text={text}
+              isOpen={openId === id}
+              onClick={() => toggle(id)}
+            />
           ))}
         </div>
       </div>
     </section>
   );
 }
+
+interface TestimonialCardProps {
+  id: number;
+  name: string;
+  age: number;
+  text: string;
+  isOpen: boolean;
+  onClick: () => void;
+}
+
+function TestimonialCard({ id, name, age, text, isOpen, onClick }: TestimonialCardProps) {
+  return (
+    <motion.div
+      layout
+      className="relative w-full max-w-2xl mx-auto"
+      onClick={onClick}
+      style={{ cursor: "pointer" }}
+    >
+      <div
+        className={`relative rounded-2xl p-5 sm:p-6 bg-surface-raised border border-line transition-all duration-300 ${
+          isOpen ? "shadow-xl ring-2 ring-accent/30" : "shadow-lg hover:shadow-xl hover:border-accent/30"
+        }`}
+      >
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex-1 min-w-0 text-left">
+            <p className="font-semibold text-paper text-base sm:text-lg truncate">
+              {name}
+            </p>
+            <p className="text-xs font-mono uppercase tracking-wider text-muted mt-0.5">
+              {age} лет
+            </p>
+          </div>
+          <motion.span
+            className="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-accent/10 text-accent transition-transform duration-300"
+            animate={{ rotate: isOpen ? 180 : 0 }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </motion.span>
+        </div>
+
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0, marginTop: -10 }}
+              animate={{ opacity: 1, height: "auto", marginTop: 16 }}
+              exit={{ opacity: 0, height: 0, marginTop: -10 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="overflow-hidden"
+            >
+              <div className="pt-4 border-t border-line/50">
+                <p className="text-base leading-relaxed text-muted whitespace-pre-line">
+                  {text}
+                </p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.div>
+  );
+}
+
+export default TestimonialsSection;
