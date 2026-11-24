@@ -1,6 +1,6 @@
 import type { ComponentType, SVGProps } from "react";
 import Link from "next/link";
-import { InstagramIcon, TelegramIcon, TikTokIcon } from "@/components/ui/Icons";
+import { TelegramIcon, TikTokIcon } from "@/components/ui/Icons";
 import { botLink, LINKS } from "@/lib/site";
 
 interface Social {
@@ -11,7 +11,6 @@ interface Social {
 
 const SOCIALS: readonly Social[] = [
   { label: "Telegram @trenviet", href: LINKS.telegram, Icon: TelegramIcon },
-  { label: "Instagram @tren.pavel", href: LINKS.instagram, Icon: InstagramIcon },
   { label: "TikTok @tren.pavel", href: LINKS.tiktok, Icon: TikTokIcon },
 ];
 
