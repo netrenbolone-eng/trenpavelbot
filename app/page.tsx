@@ -9,7 +9,6 @@ import {
   TariffsSection,
 } from "@/components/sections/AdditionalSections";
 import Footer from "@/components/Footer";
-import MobileBotCTA from "@/components/ui/MobileBotCTA";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 
 export default function Page() {
@@ -27,7 +26,6 @@ export default function Page() {
         <FinalBotCTASection />
       </main>
       <Footer />
-      <MobileBotCTA />
     </>
   );
 }
