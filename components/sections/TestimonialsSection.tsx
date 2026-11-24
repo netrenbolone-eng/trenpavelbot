@@ -107,7 +107,7 @@ function TestimonialCard({ id, name, age, text, isOpen, onClick }: TestimonialCa
       style={{ cursor: "pointer" }}
     >
       <div
-        className={`relative rounded-2xl p-5 sm:p-6 bg-surface-raised border border-line transition-all duration-200 ease-out ${
+        className={`relative rounded-2xl p-5 sm:p-6 bg-surface-raised border border-line transition-all duration-500 ease-in-out ${
           isOpen ? "shadow-xl ring-2 ring-accent/30" : "shadow-lg hover:shadow-xl hover:border-accent/30"
         }`}
       >
@@ -121,7 +121,7 @@ function TestimonialCard({ id, name, age, text, isOpen, onClick }: TestimonialCa
             </p>
           </div>
           <span
-            className="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-accent/10 text-accent transition-transform duration-200 ease-out"
+            className="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-accent/10 text-accent transition-transform duration-500 ease-in-out"
             style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -131,11 +131,14 @@ function TestimonialCard({ id, name, age, text, isOpen, onClick }: TestimonialCa
         </div>
 
         <div
-          className="overflow-hidden transition-all duration-200 ease-out"
+          className="overflow-hidden"
           style={{
             maxHeight: isOpen ? contentHeight : 0,
             marginTop: isOpen ? 16 : 0,
             opacity: isOpen ? 1 : 0,
+            filter: isOpen ? "blur(0px)" : "blur(4px)",
+            transform: isOpen ? "translateY(0)" : "translateY(-8px)",
+            transition: "max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
         >
           <div ref={contentRef} className="pt-4 border-t border-line/50">
