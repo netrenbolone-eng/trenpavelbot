@@ -143,4 +143,3 @@ function TestimonialCard({ id, name, age, text, isOpen, onClick }: TestimonialCa
   );
 }
 
-export default TestimonialsSection;
