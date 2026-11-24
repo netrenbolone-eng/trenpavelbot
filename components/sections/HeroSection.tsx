@@ -57,7 +57,6 @@ export default function HeroSection() {
               variants={fadeUp}
               className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
             >
-              Программа на месяц под цель и уровень.
             </motion.p>
 
             <motion.div
