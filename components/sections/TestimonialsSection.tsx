@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 const TESTIMONIALS = [
   {
@@ -89,17 +89,6 @@ interface TestimonialCardProps {
 }
 
 function TestimonialCard({ id, name, age, text, isOpen, onClick }: TestimonialCardProps) {
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [contentHeight, setContentHeight] = useState(0);
-
-  useEffect(() => {
-    if (isOpen && contentRef.current) {
-      setContentHeight(contentRef.current.scrollHeight);
-    } else {
-      setContentHeight(0);
-    }
-  }, [isOpen]);
-
   return (
     <div
       className="relative w-full max-w-2xl mx-auto"
@@ -130,18 +119,20 @@ function TestimonialCard({ id, name, age, text, isOpen, onClick }: TestimonialCa
           </span>
         </div>
 
+        {/* Content area: GPU-accelerated scaleY/opacity/blur animation — no layout recalculation */}
         <div
           className="overflow-hidden"
           style={{
-            maxHeight: isOpen ? contentHeight : 0,
-            marginTop: isOpen ? 16 : 0,
+            transformOrigin: "top",
+            transform: isOpen ? "scaleY(1)" : "scaleY(0)",
             opacity: isOpen ? 1 : 0,
-            filter: isOpen ? "blur(0px)" : "blur(4px)",
-            transform: isOpen ? "translateY(0)" : "translateY(-8px)",
-            transition: "max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+            filter: isOpen ? "blur(0px)" : "blur(6px)",
+            marginTop: isOpen ? 16 : 0,
+            transition:
+              "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
         >
-          <div ref={contentRef} className="pt-4 border-t border-line/50">
+          <div className="pt-4 border-t border-line/50">
             <p className="text-base leading-relaxed text-muted whitespace-pre-line">
               {text}
             </p>
