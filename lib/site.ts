@@ -4,7 +4,7 @@ export const LINKS = {
   bot: "https://t.me/Trenpavel_bot",
   guide: "https://trenpavel.framer.ai/",
   telegram: "https://t.me/trenviet",
-  instagram: "https://www.instagram.com/tren.pavel/",
+  email: "mailto:netrenbolone@gmail.com",
   tiktok: "https://www.tiktok.com/@tren.pavel",
   blog: "/blog",
   oferta: "/oferta",

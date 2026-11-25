@@ -79,7 +79,6 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
               logo: `${SITE_URL}/icon.svg`,
               sameAs: [
                 "https://t.me/trenviet",
-                "https://www.instagram.com/tren.pavel/",
                 "https://www.tiktok.com/@tren.pavel",
               ],
               contactPoint: {

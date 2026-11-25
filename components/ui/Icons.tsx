@@ -25,10 +25,21 @@ export function TelegramIcon(props: IconProps) {
 }
 
 export function TikTokIcon(props: IconProps) {
+    return (
+      <svg {...baseProps} {...props}>
+        <path d="M14 4v10.5a3.5 3.5 0 1 1-2.8-3.43" />
+        <path d="M14 4c.7 3.1 2.8 5.2 6 5.5V5.4" />
+      </svg>
+    );
+  }
+
+export function EmailIcon(props: IconProps) {
   return (
     <svg {...baseProps} {...props}>
-      <path d="M14 4v10.5a3.5 3.5 0 1 1-2.8-3.43" />
-      <path d="M14 4c.7 3.1 2.8 5.2 6 5.5V5.4" />
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+      <path d="M2 4v16" />
+      <path d="M22 4v16" />
     </svg>
   );
 }
