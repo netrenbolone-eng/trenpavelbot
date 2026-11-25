@@ -119,17 +119,16 @@ function TestimonialCard({ id, name, age, text, isOpen, onClick }: TestimonialCa
           </span>
         </div>
 
-        {/* Content area: GPU-accelerated scaleY/opacity/blur animation — no layout recalculation */}
+        {/* Content area: smooth blur/fade only, no layout-shifting transforms */}
         <div
           className="overflow-hidden"
           style={{
-            transformOrigin: "top",
-            transform: isOpen ? "scaleY(1)" : "scaleY(0)",
+            maxHeight: isOpen ? 1200 : 0,
             opacity: isOpen ? 1 : 0,
             filter: isOpen ? "blur(0px)" : "blur(6px)",
             marginTop: isOpen ? 16 : 0,
             transition:
-              "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+              "max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
         >
           <div className="pt-4 border-t border-line/50">
