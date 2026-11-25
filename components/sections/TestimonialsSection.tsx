@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 const TESTIMONIALS = [
   {
@@ -89,33 +89,18 @@ interface TestimonialCardProps {
 }
 
 function TestimonialCard({ id, name, age, text, isOpen, onClick }: TestimonialCardProps) {
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [contentHeight, setContentHeight] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  useEffect(() => {
-    if (isOpen && contentRef.current) {
-      setContentHeight(contentRef.current.scrollHeight);
-    } else {
-      setContentHeight(0);
-    }
-  }, [isOpen]);
-
   return (
     <div
       className="relative w-full max-w-2xl mx-auto"
       onClick={onClick}
+      role="button"
+      tabIndex={0}
+      aria-expanded={isOpen}
+      aria-controls={`testimonial-content-${id}`}
       style={{ cursor: "pointer" }}
     >
       <div
-        className={`relative rounded-2xl p-5 sm:p-6 bg-surface-raised border border-line transition-all duration-500 ease-in-out ${
+        className={`relative rounded-2xl p-5 sm:p-6 bg-surface-raised border border-line transition-all duration-300 ease-in-out ${
           isOpen ? "shadow-xl ring-2 ring-accent/30" : "shadow-lg hover:shadow-xl hover:border-accent/30"
         }`}
       >
@@ -129,7 +114,7 @@ function TestimonialCard({ id, name, age, text, isOpen, onClick }: TestimonialCa
             </p>
           </div>
           <span
-            className="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-accent/10 text-accent transition-transform duration-500 ease-in-out"
+            className="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-accent/10 text-accent transition-transform duration-300 ease-in-out"
             style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -138,21 +123,19 @@ function TestimonialCard({ id, name, age, text, isOpen, onClick }: TestimonialCa
           </span>
         </div>
 
-        {/* Content area: mobile = blur/fade only (no frame expansion); desktop = full animation */}
+        {/* Content area: CSS Grid animation — GPU-accelerated, no layout recalculation */}
         <div
           className="overflow-hidden"
           style={{
-            maxHeight: isOpen ? (isMobile ? 2000 : contentHeight) : 0,
+            display: "grid",
+            gridTemplateRows: isOpen ? "1fr" : "0fr",
             opacity: isOpen ? 1 : 0,
             filter: isOpen ? "blur(0px)" : "blur(6px)",
-            marginTop: isOpen ? 16 : 0,
             transition:
-              isMobile
-                ? "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.5s cubic-bezier(0.4, 0, 0.2, 1)"
-                : "max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+              "grid-template-rows 300ms cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
         >
-          <div ref={contentRef} className="pt-4 border-t border-line/50">
+          <div className="pt-4 border-t border-line/50 min-h-0 overflow-hidden">
             <p className="text-base leading-relaxed text-muted whitespace-pre-line">
               {text}
             </p>
